@@ -7,6 +7,26 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="page-styles.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    /* Make YouTube video responsive */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -17,14 +37,14 @@
       <div class="logo-text">BYAHEVERSE</div>
       <div class="tagline">Travel meets the metaverse</div>
     </div>
-    <!-- Removed hamburger menu -->
     
+    <!-- Navigation -->
     <nav class="navbar">
       <ul>
         <li><a href="index.html#hero-section">Home</a></li>
-        <li><a href="indexhtml#about-section">About</a></li>
+        <li><a href="index.html#about-section">About</a></li>
         <li><a href="index.html#services-section">Services</a></li>
-        <li><a href="indexhtml#contact-section">Contact Us</a></li>
+        <li><a href="index.html#contact-section">Contact Us</a></li>
       </ul>
     </nav>
     
@@ -34,8 +54,9 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Page Content -->
   <div class="page-container">
+    <!-- Hero Section -->
     <div class="hero-section" style="background-image: url('images/CEBU.webp');">
       <div class="hero-content">
         <h1>CEBU</h1>
@@ -47,10 +68,10 @@
     <div class="video-section">
       <h2>Explore the Beauty of Cebu</h2>
       <div class="video-container">
-        <video controls width="100%" height="auto" poster="images/CEBU.webp">
-          <source src="mp4/cebu.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ANhQ9soZ6OU?si=84w5juMWlG3mKQdK" 
+        title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </div>
 
