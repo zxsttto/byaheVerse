@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Log In - ByaheVerse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+
+    .header {
+      background-color: #000000cc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-img {
+      height: 60px;
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00bfff;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .log-in-btn,
+    .sign-up-btn {
+      background: transparent;
+      border: 2px solid #00bfff;
+      color: #00bfff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .log-in-btn:hover,
+    .sign-up-btn:hover {
+      background-color: #00bfff;
+      color: #000;
+    }
+
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 80vh;
+      padding: 40px 20px;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .login-logo {
+      text-align: center;
+    }
+
+    .login-logo .logo-img {
+      height: 130px;
+    }
+
+    .login-logo .logo-text {
+      font-size: 2.5rem;
+    }
+
+    .login-box {
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .login-box h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: #00bfff;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      border: none;
+      background-color: #1c1c1c;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .input-group input:focus {
+      outline: 2px solid #00bfff;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .remember-me input {
+      margin-right: 10px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background-color: #00bfff;
+      color: #000;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #0099cc;
+    }
+
+    .forgot-password {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .forgot-password a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    /* Popup Overlay */
+    .login-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .login-popup-content {
+      background: #fff;
+      color: #000;
+      padding: 30px 50px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      text-align: center;
+      animation: popupFade 0.4s ease;
+    }
+
+    @keyframes popupFade {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .login-container {
+        flex-direction: column;
+      }
+
+      .logo-img {
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo-container">
+     <img src="images/Nobackground.png" alt="ByaheVerse Logo" class="logo-img" />
+
+      <div>
+        <div class="logo-text">BYAHEVERSE</div>
+        <div class="tagline">Travel meets the metaverse</div>
+      </div>
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about-section">About</a></li>
+        <li><a href="index.html#services-section">Services</a></li>
+        <li><a href="index.html#contact-section">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <a href="login.html"><button class="log-in-btn">Log In</button></a>
+      <button class="sign-up-btn">Sign Up</button>
+    </div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-logo">
+      <img src="images/ByaheVerse.png" alt="ByaheVerse Logo" class="logo-img" />
+      <div class="logo-text">BYAHEVERSE</div>
+      <div class="tagline">Travel meets the metaverse</div>
+    </div>
+
+    <div class="login-box">
+      <h2>Log In</h2>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="username">Username or Email</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <div class="remember-me">
+          <input type="checkbox" id="remember" name="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <button type="submit" class="login-btn">Log In</button>
+      </form>
+      <div class="forgot-password">
+        <a href="#">Forgot Password?</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Login Popup -->
+  <div class="login-popup" id="login-popup">
+    <div class="login-popup-content">
+      Login Successful! Redirecting...
+    </div>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById("login-form");
+    const loginPopup = document.getElementById("login-popup");
+
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      loginPopup.style.display = "flex";
+
+      setTimeout(() => {
+        loginPopup.style.display = "none";
+        window.location.href = "HomePage.html";
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

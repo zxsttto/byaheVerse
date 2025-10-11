@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByaheVerse - Explore the Philippines</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo-container">
+      <img src="images/Nobackground.png" alt="ByaheVerse logo" class="logo-img" />
+      <div class="logo-text">BYAHEVERSE</div>
+      <div class="tagline">Travel meets the metaverse</div>
+    </div>
+
+    <nav class="navbar" aria-label="Main navigation">
+      <ul>
+        <li><a href="#hero-section" aria-label="Go to Home section">Home</a></li>
+        <li><a href="#about-section" aria-label="Go to About section">About</a></li>
+        <li><a href="#services-section" aria-label="Go to Services section">Services</a></li>
+        <li><a href="#booking-section" aria-label="Go to Booking section">Booking</a></li>
+        <li><a href="#contact-section" aria-label="Go to Contact Us section">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="auth-buttons">
+      <a href="login.html"><button class="log-in-btn" aria-label="Log in">Log In</button></a>
+      <button class="sign-up-btn" aria-label="Sign up">Sign Up</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section" id="hero-section">
+    <div class="hero-content">
+      <p class="location">The Philippines</p>
+      <h1>EXPLORE THE PHILIPPINES</h1>
+      <p class="description">
+        Discover a paradise of over 7,000 islands, from pristine beaches and majestic mountains to vibrant cities and unique cultural experiences.
+      </p>
+    </div>
+  </main>
+
+  <!-- Destination Cards -->
+  <section class="cards-section">
+    <div class="card" data-destination="Bohol">
+      <img src="images/Bohol.jpg" alt="Scenic view of Bohol" loading="lazy" />
+      <div class="card-label">Bohol</div>
+    </div>
+    <div class="card" data-destination="Baguio">
+      <img src="images/Baguio.jpg" alt="View of Baguio" loading="lazy" />
+      <div class="card-label">Baguio</div>
+    </div>
+    <div class="card" data-destination="Cebu">
+      <img src="images/CEBU.webp" alt="Cebu island" loading="lazy" />
+      <div class="card-label">Cebu</div>
+    </div>
+    <div class="card" data-destination="Samal Island">
+      <img src="images/Samal.jpg" alt="Samal Island beach" loading="lazy" />
+      <div class="card-label">Samal Island</div>
+    </div>
+    <div class="card" data-destination="Siargao Island">
+      <img src="images/Siargao.webp" alt="Siargao surfing spot" loading="lazy" />
+      <div class="card-label">Siargao Island</div>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about-section" class="page-section">
+    <img src="images/ByaheVerse.png" alt="About ByaheVerse logo" class="about-logo" />
+    <h2>About Us</h2>
+    <p>
+      ByaheVerse is your ultimate guide to the most captivating travel destinations in the Philippines. Our mission is to connect travelers with the unique beauty, culture, and adventures the country has to offer.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services-section" class="page-section">
+    <img src="images/ORserve.png" alt="Our Services Logo" class="about-logo" />
+    <h2>Our Services</h2>
+    <div class="section-content">
+      <p>
+        We offer curated travel guides, personalized tour packages, and seamless booking services for flights, hotels, and local experiences. Let us help you plan your perfect adventure.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking-section" class="page-section">
+    <h2>Book Your Trip</h2>
+    <form id="booking-form" class="booking-form">
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <select id="destination" name="destination" required>
+          <option value="">-- Select a destination --</option>
+          <option value="Bohol">Bohol</option>
+          <option value="Baguio">Baguio</option>
+          <option value="Cebu">Cebu</option>
+          <option value="Samal Island">Samal Island</option>
+          <option value="Siargao Island">Siargao Island</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Travel Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label for="passengers">Passengers</label>
+        <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+      </div>
+      <button type="submit" class="submit-btn" aria-label="Book your trip">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Booking Popup -->
+  <div id="booking-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h3>Booking Confirmed!</h3>
+      <p id="booking-details"></p>
+      <button onclick="closeBookingPopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- Contact Us -->
+  <section id="contact-section" class="page-section">
+    <h2>Contact Us</h2>
+    <form id="contact-form" class="basic-contact-form">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="submit-btn" aria-label="Send message">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Thank You Popup -->
+  <div id="thank-you-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h3>Thank you!</h3>
+      <p>Your message has been successfully sent.</p>
+      <button onclick="closeThankYouPopup()">Close</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 ByaheVerse. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="java.js"></script>
+  <noscript>You need to enable JavaScript to use this website.</noscript>
+
+  <!-- Popup Overlay -->
+<div class="popup-overlay" id="autoPopup">
+  <div class="popup-content">
+    <h3>Welcome to ByaheVerse!</h3>
+    <p>Explore your next travel destination with us.</p>
+    <button id="closePopup">Got it!</button>
+  </div>
+</div>
+
+</body>
+
+</html>

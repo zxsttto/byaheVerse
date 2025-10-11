@@ -1,0 +1,232 @@
+/* Reset default margins and make full-height layout */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0d0d0d;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Header stays fixed height */
+.header {
+  padding: 20px 40px;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* LOGO area inside header */
+.header .logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.header .logo-img {
+  height: 50px;
+}
+
+.header .logo-text {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header .tagline {
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* Navigation bar */
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #28a745;
+}
+
+/* Auth buttons */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  padding: 8px 16px;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-buttons .sign-up-btn {
+  background: #28a745;
+}
+
+.auth-buttons button:hover {
+  filter: brightness(0.9);
+}
+
+/* Main Login Section - centered in screen */
+.login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Left Logo */
+.login-logo {
+  text-align: right;
+}
+
+.login-logo .logo-img {
+  height: 150px;
+}
+
+.login-logo .logo-text {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.login-logo .tagline {
+  color: #ccc;
+  margin-top: 10px;
+  font-size: 1em;
+}
+
+/* Login Box */
+.login-box {
+  background-color: rgba(34, 34, 34, 0.9);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Form input groups */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #555;
+  background-color: #333;
+  color: #fff;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Remember me section */
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.remember-me input {
+  margin-right: 10px;
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Forgot password link */
+.forgot-password {
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.forgot-password a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Focus styles */
+input:focus, button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .login-logo {
+    text-align: center;
+  }
+
+  .login-logo .logo-img {
+    height: 100px;
+  }
+
+  .login-logo .logo-text {
+    font-size: 2em;
+  }
+
+  .login-logo .tagline {
+    font-size: 0.9em;
+  }
+}
